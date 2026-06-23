@@ -27,4 +27,4 @@ router
   .put(protect, admin, upload.single("image"), updateProduct)
   .delete(protect, admin, deleteProduct);
 
-  module.exports = router;
+module.exports = router;
