@@ -2,8 +2,10 @@ const User = require("../models/User.model");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const sendEmail = require("../utils/sendEmail");
-const getOtpTemplate = require("../constants/getOtpTemplate");
-const getResendOtpTemplate = require("../constants/getResendOtpTemplate");
+const {
+  getOtpTemplate,
+  getResendOtpTemplate,
+} = require("../constants/templates.js");
 
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -13,7 +15,7 @@ const generateToken = (id) => {
 
 // Register a new user
 const registerUser = async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, role } = req.body;
   try {
     const existingUser = await User.findOne({ email });
     if (existingUser) {
@@ -33,6 +35,7 @@ const registerUser = async (req, res) => {
       password: hashedPassword,
       otp,
       otpExpires,
+      role: role || "user",
     });
 
     if (user) {

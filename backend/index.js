@@ -4,7 +4,7 @@ const dotenv = require("dotenv").config();
 const dbConnect = require("./config/db");
 const userRoutes = require("./routes/auth.routes.js");
 const productRoutes = require("./routes/product.routes.js");
-// const ordersRoutes = require("./routes/order.routes.js");
+const ordersRoutes = require("./routes/order.routes.js");
 // const paymentRoutes = require("./routes/payment.routes.js");
 // const analyticsRoutes = require("./routes/analytics.routes.js");
 
@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use("/api/auth", userRoutes);
 app.use("/api/products", productRoutes);
-// app.use("/api/orders", ordersRoutes);
+app.use("/api/orders", ordersRoutes);
 // app.use("/api/payment", paymentRoutes);
 // app.use("/api/analytics", analyticsRoutes);
 
