@@ -1,5 +1,5 @@
 const Product = require("../models/Product.model");
-const cloudinary = require("../config/cloudinary.config");
+const cloudinary = require("../config/cloudinary");
 
 // Get all products
 const getAllProducts = async (req, res) => {
@@ -29,7 +29,6 @@ const createProduct = async (req, res) => {
     let imageUrl = null;
     if (req.file) {
       const result = await cloudinary.uploader.upload(req.file.path);
-      console.log("Cloudinary upload result:", result);
       imageUrl = result.secure_url;
     }
     const product = new Product({
@@ -38,7 +37,7 @@ const createProduct = async (req, res) => {
       price,
       category,
       stock,
-      image: imageUrl,
+      imageUrl,
     });
     await product.save();
     res.status(201).json({ message: "Product created successfully", product });

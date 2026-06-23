@@ -4,9 +4,9 @@ const dotenv = require("dotenv").config();
 const dbConnect = require("./config/db");
 const userRoutes = require("./routes/auth.routes.js");
 const productRoutes = require("./routes/product.routes.js");
-const ordersRoutes = require("./routes/order.routes.js");
-const paymentRoutes = require("./routes/payment.routes.js");
-const analyticsRoutes = require("./routes/analytics.routes.js");
+// const ordersRoutes = require("./routes/order.routes.js");
+// const paymentRoutes = require("./routes/payment.routes.js");
+// const analyticsRoutes = require("./routes/analytics.routes.js");
 
 const app = express();
 app.use(core());
