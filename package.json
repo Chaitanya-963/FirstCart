@@ -1,0 +1,26 @@
+{
+  "name": "firstcart",
+  "version": "1.0.0",
+  "description": "Build FirstCart — A Production-Ready MERN E-Commerce App From Scratch",
+  "homepage": "https://github.com/Chaitanya-963/FirstCart#readme",
+  "bugs": {
+    "url": "https://github.com/Chaitanya-963/FirstCart/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chaitanya-963/FirstCart.git"
+  },
+  "license": "ISC",
+  "author": "chaitanya mehetre",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev:server": "cd backend && npm run dev",
+    "dev:client": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\" ",
+    "build": "cd frontend && npm run build"
+  },
+  "dependencies": {
+    "concurrently": "^10.0.3"
+  }
+}
